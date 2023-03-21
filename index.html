@@ -1,16 +1,26 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learing View</title>
     <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hello, Vue</h1>
     <div id="app">
-    </div>
+      <div v-if="showBooks">
+        <p>{{ title }} - {{ author }} - {{ age }}</p>
+        <button v-on:click="age++">Increase Age</button>
+        <button v-on:click="age--">Decrease Age</button>
+        <!-- <div @click="title = 'something else'">Change Title</div> -->
+        <div @click="changeTitle('Oath Bringer')">change title</div>
+      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
+      <div v-show="showBooks">Currently showing books</div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
